@@ -1,5 +1,6 @@
 var buttons = document.getElementsByClassName("b");
 var display = document.getElementById("dp");
+
 var op1 = 0;
 var op = null;
 var op2 = null;
@@ -8,6 +9,8 @@ var isc = 0;
 
 for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
+    var audi = new Audio("../media/audio/touch.wav");
+    audi.play();
     var value = this.getAttribute("data");
     if (
       value == "1" ||
@@ -23,6 +26,8 @@ for (var i = 0; i < buttons.length; i++) {
       value == "."
     ) {
       display.innerText += value;
+      
+
     } else if (
       value == "+" ||
       value == "-" ||
@@ -32,11 +37,13 @@ for (var i = 0; i < buttons.length; i++) {
     ) {
       op = value;
       op1 = parseFloat(display.textContent);
-      display.innerText = " ";
+      display.innerText = " " ;
+    
     } else if (value == "=") {
       op2 = parseFloat(display.textContent);
       var r = null;
       r = eval(op1 + op + op2);
+      console.log(op1 + " " + op + " "+op2);
       console.log(r);
       display.innerText = r;
     } else {
