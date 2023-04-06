@@ -1,3 +1,5 @@
+console.log("main.js file");
+
 var buttons = document.getElementsByClassName("b");
 var display = document.getElementById("dp");
 
